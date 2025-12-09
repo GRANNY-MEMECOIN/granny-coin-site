@@ -24,7 +24,8 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm ci
+        # pakai npm install karena package-lock.json belum ada
+        run: npm install
 
       - name: Build site
         run: npm run build
