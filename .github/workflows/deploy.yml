@@ -24,14 +24,15 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        # pakai npm install karena package-lock.json belum ada
+        # pakai npm install karena repository belum punya package-lock.json
         run: npm install
 
       - name: Build site
         run: npm run build
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        # gunakan versi upload-pages-artifact terbaru (v3) untuk menghindari depresi upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
